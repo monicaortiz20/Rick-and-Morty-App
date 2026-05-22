@@ -3,6 +3,7 @@ export type Episode = {
   name: string;
   episode: string;
   air_date: string;
+  characters: string[];
 };
 
 export type ApiResponse = {
