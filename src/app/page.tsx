@@ -1,38 +1,65 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Header from "@/src/components/Header";
 import EpisodeList from "@/src/components/EpisodeList";
-//import Pagination from "@/src/components/Pagination";
+import Pagination from "@/src/components/Pagination";
 import { Episode } from "@/src/types/episode";
-import getEpisodes from "@/src/services/api";
+import { getAllEpisodes, getEpisodes } from "@/src/services/api";
 
 export default function Home() {
   const [episodes, setEpisodes] = useState<Episode[]>([]);
+  const [allEpisodes, setAllEpisodes] = useState<Episode[]>([]);
   const [search, setSearch] = useState("");
-  //const [currPage, setCurrPage] = useState(1);
-  //const [totalPages, setTotalPages] = useState(1);
+  const [currPage, setCurrPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     async function fetchEpisodes() {
-      //const resp = await fetch(endpoints.episodes);
-      //ejemplo: const resp = await fetch(`${process.env.REACT_APP_API_BASE_URL}/characters)
+      //search mode
+      if (search.trim()) {
+        const allData = await getAllEpisodes();
+        setAllEpisodes(allData);
+        return;
+      }
+
+      //normal mode
       const data = await getEpisodes({
-        //page: currentPage,
-        search,
-        //episode: search;
+        page: currPage,
       });
       setEpisodes(data.results);
-      //setTotalPages(data.info.pages)
+      setTotalPages(data.info.pages);
     }
     fetchEpisodes();
-  }, [search]); //TODO
+  }, [currPage, search]);
+
+  //Search filter
+  const filteredEpisodes = useMemo(() => {
+    if (!search.trim()) {
+      return episodes;
+    }
+
+    return allEpisodes.filter((epi) => {
+      const value = search.toLocaleLowerCase();
+      return (
+        epi.name.toLocaleLowerCase().includes(value) ||
+        epi.episode.toLocaleLowerCase().includes(value)
+      );
+    });
+  }, [search, episodes, allEpisodes]);
 
   return (
-    <main>
+    <main className="flex flex-col gap-8 p-10">
       <Header search={search} setSearch={setSearch} />
-      <EpisodeList episodes={episodes} />
+      <EpisodeList episodes={filteredEpisodes} />
 
-      {/* <Pagination /> */}
+      {!search && (
+        <Pagination
+          currPage={currPage}
+          totalPages={totalPages}
+          onPrev={() => setCurrPage((prev) => prev - 1)}
+          onNext={() => setCurrPage((prev) => prev + 1)}
+        />
+      )}
     </main>
   );
 }

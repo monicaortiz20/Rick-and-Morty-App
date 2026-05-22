@@ -14,7 +14,14 @@ export type ApiResponse = {
   results: Episode[];
 };
 
-export type Props = {
+export type Search = {
   search: string;
   setSearch: (value: string) => void;
+};
+
+export type PaginationProps = {
+  currPage: number;
+  totalPages: number;
+  onPrev: () => void;
+  onNext: () => void;
 };

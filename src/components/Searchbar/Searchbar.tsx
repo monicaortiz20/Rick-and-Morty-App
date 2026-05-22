@@ -1,6 +1,6 @@
-import { Props } from "@/src/types/episode";
+import { Search } from "@/src/types/episode";
 
-export default function Searchbar({ search, setSearch }: Props) {
+export default function Searchbar({ search, setSearch }: Search) {
   return (
     <input
       type="text"
