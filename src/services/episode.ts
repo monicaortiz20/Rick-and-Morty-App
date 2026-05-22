@@ -30,3 +30,11 @@ export async function getAllEpisodes() {
   }
   return allEpisodes;
 }
+
+//Get Episode by ID
+export async function getEpisodeById(id: string) {
+  const resp = await fetch(`${API_URL}/episode/${id}`);
+  if (!resp.ok) throw new Error("Error fetching episode.");
+
+  return resp.json();
+}
