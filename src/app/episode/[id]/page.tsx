@@ -24,13 +24,32 @@ export default async function EpisodePage({ params }: Props) {
   const characters = await getCharactersById(characterIds);
 
   return (
-    <div className="flex flex-col md:p-4">
-      <Link href="/" className="text-2x1">
+    <main
+      className="page-container relative mx-auto
+    flex min-h-screen
+    w-full flex-col gap-10"
+    >
+      <Link
+        href="/"
+        className="flex h-[56px] w-[56px]
+        items-center
+        justify-center
+        rounded-2x1 border
+        border-white/5
+        bg-white/[0.03]
+        text-2x1
+        text-white
+        transition-all
+        duration-300
+        cursor-pointer
+        hover:border-[rgba(163, 255, 18, 0.2)] hover:text-[var(--neon-green)]
+        hover:shadow-[0_0_20px_rgba(163, 255, 18, 0.08)]"
+      >
         &#x2190;
       </Link>
       <EpisodeDetail episode={episode} />
       <CharacterCarousel characters={characters} />
       <Form />
-    </div>
+    </main>
   );
 }

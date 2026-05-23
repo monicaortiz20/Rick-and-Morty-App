@@ -55,60 +55,191 @@ export default function Form() {
   }
 
   return (
-    <div className="w-full max-w-2xl mt-12">
-      <h2 className="text-2xl font-bold mb-6">Leave a comment</h2>
+    <section
+      className="
+      relative
+      w-full
+      overflow-hidden
+      rounded-[10px]
+      bg-white/[0.03]
+      md:p-10
+    "
+      style={{ padding: "12px 18px" }}
+    >
+      <div
+        className="
+        pointer-events-none
+        absolute
+        bottom-[-120px]
+        left-[-120px]
+        h-[240px]
+        w-[240px]
+        rounded-full
+        bg-[var(--neon-green-soft)]
+        blur-[120px]
+      "
+      />
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className={`border rounded-lg p-3 outline-none ${
-            error.name ? "border-red-500" : "border-gray-300"
-          }`}
-        />
-
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={`border rounded-lg p-3 outline-none ${
-            error.email ? "border-red-500" : "border-gray-300"
-          }`}
-        />
-
-        <textarea
-          placeholder="Comment"
-          value={comment}
-          maxLength={500}
-          onChange={(e) => setComment(e.target.value)}
-          className={`border rounded-lg p-3 outline-none min-h-40 resize-none ${
-            error.comment ? "border-red-500" : "border-gray-300"
-          }`}
-        />
-
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-gray-500">{comment.length}/500</span>
-
-          <button
-            type="submit"
-            disabled={loading}
-            className="bg-black text-white px-6 py-3 rounded-lg"
+      <div
+        className="
+        relative
+        z-10
+        flex
+        flex-col
+        gap-8
+      "
+      >
+        <div className="flex flex-col gap-3">
+          <h2
+            className="
+            text-3xl
+            font-black
+            text-white
+            md:text-4xl
+          "
+            style={{
+              fontFamily: "Orbitron, sans-serif",
+            }}
           >
-            {loading ? "Sending..." : "Send"}
-          </button>
+            Leave a comment
+          </h2>
+
+          <p
+            className="
+            text-sm
+            text-zinc-500
+            md:text-base
+          "
+          >
+            Share your thoughts about this episode.
+          </p>
         </div>
+        <form
+          onSubmit={handleSubmit}
+          className="
+          flex
+          flex-col
+          gap-5
+        "
+        >
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className={`
+            input-ui
+            rounded-2xl
+            border
+            bg-white/[0.03]
+            px-5
+            py-4
+            text-white
+            placeholder:text-zinc-500
+            transition-all
+            duration-300
+            focus:border-[var(--neon-green)]
+            focus:outline-none
+            cursor-pointer
+            ${error.name ? "border-rose-400/70" : "border-white/5"}
+          `}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className={`
+            input-ui
+            rounded-2xl
+            border
+            bg-white/[0.03]
+            px-5
+            py-4
+            text-white
+            placeholder:text-zinc-500
+            transition-all
+            duration-300
+            focus:border-[var(--neon-green)]
+            focus:outline-none
+            cursor-pointer
+            ${error.email ? "border-rose-400/70" : "border-white/5"}
+          `}
+          />
+          <textarea
+            placeholder="Comment"
+            value={comment}
+            maxLength={500}
+            onChange={(e) => setComment(e.target.value)}
+            className={`
+            input-ui
+            min-h-[180px]
+            resize-none
+            rounded-2xl
+            border
+            bg-white/[0.03]
+            px-5
+            py-4
+            text-white
+            text-white
+            placeholder:text-zinc-500
+            transition-all
+            duration-300
+            focus:border-[var(--neon-green)]
+            focus:outline-none
+            cursor-pointer
+            ${error.comment ? "border-rose-400/70" : "border-white/5"}
+          `}
+          />
+          <div
+            className="
+            flex
+            flex-col
+            gap-5
+            md:flex-row
+            md:items-center
+            md:justify-between
+          "
+          >
+            <span
+              className="
+              text-sm
+              text-zinc-500
+            "
+            >
+              {comment.length}/500
+            </span>
 
-        {Object.values(error).some(Boolean) && (
-          <p className="text-red-500 text-sm">Complete required fields</p>
-        )}
-
-        {success && (
-          <p className="text-green-600 text-sm">Your comment has been sent</p>
-        )}
-      </form>
-    </div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="
+              inline-flex
+              items-center
+              justify-center
+              rounded-2xl
+              bg-[var(--neon-green)]
+              px-8
+              py-4
+              text-sm
+              font-bold
+              text-black
+              transition-all
+              duration-300
+              hover:scale-[1.02]
+              hover:shadow-[0_0_25px_rgba(163,255,18,0.25)]
+              disabled:cursor-not-allowed
+              disabled:opacity-50
+            "
+              style={{
+                fontFamily: "Orbitron, sans-serif",
+              }}
+            >
+              {loading ? "Sending..." : "Send"}
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
   );
 }

@@ -10,7 +10,7 @@ export default function Pagination({
     <div
       className="flex flex-col
     items-center
-    justify-cennter
+    justify-center
     gap-5
     py-6
     md:flex-row"
