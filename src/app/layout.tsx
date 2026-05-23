@@ -18,7 +18,8 @@ export default function RootLayout({
         className="bg-[var(--background)] text-[var(--test-primary)]
       antialiased
       min-h-screen
-      overflow-x-hidden"
+      overflow-x-hidden
+      suppressHydrationWarning"
       >
         <Toaster
           position="top-right"
