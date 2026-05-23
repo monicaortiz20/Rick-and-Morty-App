@@ -1,5 +1,6 @@
 import EpisodeDetail from "@/src/components/EpisodeDetail";
 import CharacterCarousel from "@/src/components/CharacterCarousel";
+import Form from "@/src/components/Form";
 import { getEpisodeById } from "@/src/services/episode";
 import { getCharactersById } from "@/src/services/characters";
 import Link from "next/link";
@@ -29,6 +30,7 @@ export default async function EpisodePage({ params }: Props) {
       </Link>
       <EpisodeDetail episode={episode} />
       <CharacterCarousel characters={characters} />
+      <Form />
     </div>
   );
 }
