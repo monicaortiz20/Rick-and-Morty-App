@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,8 +13,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en suppressHydrationWarning">
+      <body
+        className="bg-[var(--background)] text-[var(--test-primary)]
+      antialiased
+      min-h-screen
+      overflow-x-hidden"
+      >
+        <Toaster
+          position="top-right"
+          richColors
+          toastOptions={{
+            classNames: {
+              toast: "glass border border-white/10 text-white",
+              success: "!border-[var(--neon-green)]",
+              error: "!border-red-500",
+            },
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }

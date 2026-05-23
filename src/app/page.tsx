@@ -9,6 +9,8 @@ import { getAllLocations, getLocations } from "@/src/services/locations";
 import { Episode } from "@/src/types/episode";
 import { Location } from "@/src/types/locations";
 
+import { toast } from "sonner";
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"episodes" | "locations">(
     "episodes",
@@ -21,45 +23,43 @@ export default function Home() {
   const [locations, setLocations] = useState<Location[]>([]);
   const [allLocations, setAllLocations] = useState<Location[]>([]);
 
-  //To reset page on tab change
-  useEffect(() => {
-    setCurrPage(1);
-    setSearch("");
-  }, [activeTab]);
-
   //Fetch data
   useEffect(() => {
     async function fetchData() {
-      //Episodes:
-      if (activeTab === "episodes") {
-        //search mode
-        if (search.trim()) {
-          const data = await getAllEpisodes();
-          setAllEpisodes(data);
-          return;
+      try {
+        //Episodes:
+        if (activeTab === "episodes") {
+          //search mode
+          if (search.trim()) {
+            const data = await getAllEpisodes();
+            setAllEpisodes(data);
+            return;
+          }
+          //normal mode
+          const data = await getEpisodes({
+            page: currPage,
+          });
+          setEpisodes(data.results);
+          setTotalPages(data.info.pages);
         }
-        //normal mode
-        const data = await getEpisodes({
-          page: currPage,
-        });
-        setEpisodes(data.results);
-        setTotalPages(data.info.pages);
-      }
 
-      //Locations:
-      if (activeTab === "locations") {
-        //search mode
-        if (search.trim()) {
-          const data = await getAllLocations();
-          setAllLocations(data);
-          return;
+        //Locations:
+        if (activeTab === "locations") {
+          //search mode
+          if (search.trim()) {
+            const data = await getAllLocations();
+            setAllLocations(data);
+            return;
+          }
+          //normal mode
+          const data = await getLocations({
+            page: currPage,
+          });
+          setLocations(data.results);
+          setTotalPages(data.info.pages);
         }
-        //normal mode
-        const data = await getLocations({
-          page: currPage,
-        });
-        setLocations(data.results);
-        setTotalPages(data.info.pages);
+      } catch (error) {
+        toast.error("An error has happend.Please, try again.");
       }
     }
     fetchData();
@@ -97,27 +97,39 @@ export default function Home() {
   }, [search, locations, allLocations]);
 
   return (
-    <main className="flex flex-col gap-8 p-10">
-      <Header
-        search={search}
-        setSearch={setSearch}
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-      />
-
-      {activeTab === "episodes" && <EpisodeList episodes={filteredEpisodes} />}
-      {activeTab === "locations" && (
-        <LocationList locations={filteredLocations} />
-      )}
-
-      {!search && (
-        <Pagination
-          currPage={currPage}
-          totalPages={totalPages}
-          onPrev={() => setCurrPage((prev) => prev - 1)}
-          onNext={() => setCurrPage((prev) => prev + 1)}
+    <main
+      className="
+    page-container relative mx-auto flex min-h-screen w-full flex-col gap-6 md:gap-8 lg:gap-10"
+    >
+      <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[var(--neon-green-soft)] blur-[140px]" />
+      <section className="relative z-10 flex flex-col gap-6 md:gap-8">
+        <Header
+          search={search}
+          setSearch={setSearch}
+          activeTab={activeTab}
+          setActiveTab={(value) => {
+            setActiveTab(value);
+            setCurrPage(1);
+            setSearch("");
+          }}
         />
-      )}
+
+        {activeTab === "episodes" && (
+          <EpisodeList episodes={filteredEpisodes} />
+        )}
+        {activeTab === "locations" && (
+          <LocationList locations={filteredLocations} />
+        )}
+
+        {!search && (
+          <Pagination
+            currPage={currPage}
+            totalPages={totalPages}
+            onPrev={() => setCurrPage((prev) => prev - 1)}
+            onNext={() => setCurrPage((prev) => prev + 1)}
+          />
+        )}
+      </section>
     </main>
   );
 }

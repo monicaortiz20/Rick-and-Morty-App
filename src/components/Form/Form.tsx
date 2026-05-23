@@ -5,6 +5,8 @@ import { sendComment } from "@/src/services/form";
 import { CommentError } from "@/src/types/form";
 import type { FormEvent } from "react";
 
+import { toast } from "sonner";
+
 export default function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,6 +33,7 @@ export default function Form() {
     const hasErrors = Object.values(validations).some(Boolean);
     if (hasErrors) return;
 
+    const toastId = toast.loading("Sending comment...");
     try {
       setLoading(true);
       await sendComment({
@@ -38,13 +41,14 @@ export default function Form() {
         email,
         comment,
       });
+      toast.success("Comment sent seccessfully!", { id: toastId });
       setSuccess(true);
       setName("");
       setEmail("");
       setComment("");
       setError({});
     } catch (error) {
-      console.error("Se ha producido el siguiente error: ", error);
+      toast.error("An error has occurredd. Please try again.", { id: toastId });
     } finally {
       setLoading(false);
     }
