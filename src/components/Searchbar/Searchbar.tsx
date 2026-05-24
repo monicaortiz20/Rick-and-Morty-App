@@ -5,7 +5,7 @@ export default function Searchbar({ search, setSearch }: Search) {
     <div className="relative w-full">
       <input
         type="text"
-        placeholder="Search episode..."
+        placeholder="Search episode or location"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         className="input-ui glass w-full rounded-2xl border border-white/5 bg-white/[0.03] px-5 py-3 pr-12 text-sm text-white outline-none cursor-pointer transition-all duration-300 placeholder:text-zinc-500 focus:border-[var(--neon-green)] focus:shadow-[0_0_20px_rgba(163, 255, 18, 0.15)] md:text-base"

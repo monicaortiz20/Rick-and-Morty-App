@@ -25,7 +25,7 @@ export default function CharacterCarousel({ characters }: Props) {
           Characters
         </h2>
         <div
-          className="hidden items-center
+          className="items-center
         gap-2 text-sm
         text-zinc-500
         md:flex"

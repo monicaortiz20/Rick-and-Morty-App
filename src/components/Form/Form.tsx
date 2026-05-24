@@ -132,7 +132,7 @@ export default function Form() {
         >
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Name *"
             value={name}
             onChange={(e) => setName(e.target.value)}
             className={`
@@ -154,7 +154,7 @@ export default function Form() {
           />
           <input
             type="email"
-            placeholder="Email"
+            placeholder="Email *"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className={`
@@ -175,7 +175,7 @@ export default function Form() {
           `}
           />
           <textarea
-            placeholder="Comment"
+            placeholder="Comment *"
             value={comment}
             maxLength={500}
             onChange={(e) => setComment(e.target.value)}
