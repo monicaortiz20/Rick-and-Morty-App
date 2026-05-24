@@ -1,9 +1,8 @@
 "use client";
 
-import App from "next/app";
 import { createContext, useContext, useState, ReactNode } from "react";
 
-type TabType = "episodes" | "locations";
+export type TabType = "episodes" | "locations";
 
 type AppContextType = {
   search: string;

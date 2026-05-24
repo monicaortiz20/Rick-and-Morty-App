@@ -36,7 +36,7 @@ export default function Header() {
         </div>
       </div>
       <div className="padding-main relative z-10">
-        <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
+        <Tabs />
       </div>
     </header>
   );

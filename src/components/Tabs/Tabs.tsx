@@ -1,4 +1,4 @@
-import { useAppContext } from "@/src/context/AppContext";
+import { useAppContext, TabType } from "@/src/context/AppContext";
 
 export default function Tabs() {
   const { activeTab, setActiveTab, setCurrPage, setSearch } = useAppContext();
