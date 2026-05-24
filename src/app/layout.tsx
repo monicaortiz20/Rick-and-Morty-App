@@ -15,27 +15,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en suppressHydrationWarning" data-scroll-behavior="smooth">
-      {/* <body
-        className="bg-[var(--background)] text-[var(--test-primary)]
-        antialiased
-        min-h-screen
-        overflow-x-hidden
-        suppressHydrationWarning"
-      >
-        <Toaster
-          position="top-right"
-          richColors
-          toastOptions={{
-            classNames: {
-              toast: "glass border border-white/10 text-white",
-              success: "!border-[var(--neon-green)]",
-              error: "!border-red-500",
-            },
-          }}
-        />
-        {children}
-      </body> */}
-
       <body className="min-h-full flex flex-col">
         <AppProvider>
           <Toaster position="top-right" richColors />
