@@ -2,6 +2,8 @@ export type Episode = {
   id: number;
   name: string;
   episode: string;
+  air_date: string;
+  characters: string[];
 };
 
 export type ApiResponse = {
@@ -14,7 +16,11 @@ export type ApiResponse = {
   results: Episode[];
 };
 
-export type Props = {
+export type Search = {
   search: string;
   setSearch: (value: string) => void;
+};
+
+export type Props = {
+  totalPages: number;
 };

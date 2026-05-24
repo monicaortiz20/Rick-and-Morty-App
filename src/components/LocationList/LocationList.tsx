@@ -1,12 +1,12 @@
-import { Episode } from "@/src/types/episode";
-import { episodeImages } from "@/src/utils/episodeImages";
-import Image from "next/image";
-import Link from "next/link";
+import { Location } from "@/src/types/locations";
 
+import Image from "next/image";
+
+import { locationImages } from "@/src/utils/locationImages";
 type Props = {
-  episodes: Episode[];
+  locations: Location[];
 };
-export default function EpisodeList({ episodes }: Props) {
+export default function LocationList({ locations }: Props) {
   return (
     <div
       className="
@@ -17,7 +17,7 @@ export default function EpisodeList({ episodes }: Props) {
       padding-main
     "
     >
-      {episodes.length === 0 ? (
+      {locations.length === 0 ? (
         <div
           className="
           flex
@@ -37,7 +37,7 @@ export default function EpisodeList({ episodes }: Props) {
             text-zinc-500
           "
           >
-            No episodes found
+            No locations found
           </span>
         </div>
       ) : (
@@ -49,29 +49,23 @@ export default function EpisodeList({ episodes }: Props) {
           xl:grid-cols-2
         "
         >
-          {episodes.map((episode) => {
-            const imgIndex = episode.id % episodeImages.length;
-            const img = episodeImages[imgIndex];
+          {locations.map((loc) => {
+            const imgIndex = loc.id % locationImages.length;
+
+            const img = locationImages[imgIndex];
+
             return (
-              <Link
-                href={`/episode/${episode.id}`}
-                key={episode.id}
+              <div
+                key={loc.id}
                 className="
-                group
                 relative
                 flex
-                cursor-pointer
                 flex-col
                 overflow-hidden
                 rounded-[28px]
                 border
                 border-white/5
                 bg-white/[0.03]
-                transition-all
-                duration-300
-                hover:scale-[1.01]
-                hover:border-[rgba(163,255,18,0.15)]
-                hover:shadow-[0_0_30px_rgba(163,255,18,0.08)]
                 md:flex-row
               "
               >
@@ -91,12 +85,9 @@ export default function EpisodeList({ episodes }: Props) {
                     h-full
                     w-full
                     object-cover
-                    transition-transform
-                    duration-500
-                    group-hover:scale-105
                   "
                     src={img}
-                    alt={episode.name}
+                    alt={loc.name}
                     width={500}
                     height={500}
                     loading="eager"
@@ -111,29 +102,6 @@ export default function EpisodeList({ episodes }: Props) {
                     to-transparent
                   "
                   />
-                  <div
-                    className="
-                    absolute
-                    left-4
-                    top-4
-                    z-10
-                  "
-                  >
-                    <span
-                      className="inline-flex items-center rounded-lg
-                    bg-black/65
-                    text-base
-                    font-semibold
-                    text-[var(--neon-green)]
-                    backdrop-blur-md
-                    font-orb"
-                      style={{
-                        padding: "0px 5px",
-                      }}
-                    >
-                      {episode.episode}
-                    </span>
-                  </div>
                 </div>
                 <div
                   className="
@@ -143,7 +111,9 @@ export default function EpisodeList({ episodes }: Props) {
                   justify-between
                   gap-6
                 "
-                  style={{ padding: "15px 20px" }}
+                  style={{
+                    padding: "15px 20px",
+                  }}
                 >
                   <div className="flex flex-col gap-4">
                     <h2
@@ -152,13 +122,11 @@ export default function EpisodeList({ episodes }: Props) {
                       font-bold
                       leading-tight
                       text-white
-                      transition-colors
-                      duration-300
-                      group-hover:text-[var(--neon-green)]
                     "
                     >
-                      {episode.name}
+                      {loc.name}
                     </h2>
+
                     <p
                       className="
                       text-sm
@@ -166,11 +134,31 @@ export default function EpisodeList({ episodes }: Props) {
                       md:text-base
                     "
                     >
-                      {episode.air_date}
+                      Dimension: {loc.dimension}
                     </p>
                   </div>
+
+                  <div
+                    className="
+                    flex
+                    items-center
+                    pt-2
+                  "
+                  >
+                    <span
+                      className="
+                      text-sm
+                      uppercase
+                      font-orb
+                      tracking-[0.2em]
+                      text-zinc-500
+                    "
+                    >
+                      {loc.type}
+                    </span>
+                  </div>
                 </div>
-              </Link>
+              </div>
             );
           })}
         </div>
