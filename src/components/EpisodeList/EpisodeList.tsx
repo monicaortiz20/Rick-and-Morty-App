@@ -124,9 +124,9 @@ export default function EpisodeList({ episodes }: Props) {
                     text-base
                     font-semibold
                     text-[var(--neon-green)]
-                    backdrop-blur-md"
+                    backdrop-blur-md
+                    font-orb"
                       style={{
-                        fontFamily: "Orbitron, sans-serif",
                         padding: "0px 5px",
                       }}
                     >

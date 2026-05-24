@@ -43,8 +43,8 @@ export default function Pagination({
       <span
         className="text-sm uppercase tracking-[0.18em]
         text-zinc-400
-        md:text-base"
-        style={{ fontFamily: "Orbitron, sans-serif" }}
+        md:text-base
+        font-orb"
       >
         Page <span className="text-[vaar(--neon-green)]">{currPage}</span> of{" "}
         {totalPages}

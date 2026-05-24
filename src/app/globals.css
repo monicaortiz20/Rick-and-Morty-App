@@ -38,6 +38,8 @@
 
   --transition-fast: all 0.2s ease;
   --transition-normal: all 0.3s ease;
+
+  --fontFamily-orb: "Orbitron", sans-serif;
 }
 
 /* =========================================
@@ -128,6 +130,9 @@ p {
   color: var(--text-muted);
 }
 
+.font-orb {
+  font-family: var(--fontFamily-orb) !important;
+}
 /* =========================================
    LAYOUT
 ========================================= */
@@ -280,6 +285,19 @@ p {
   border-color: var(--neon-green);
 
   box-shadow: 0 0 0 3px rgba(163, 255, 18, 0.15);
+}
+
+input {
+  -webkit: autofill;
+}
+input:hover,
+input:focus {
+  -webkit: autofill;
+}
+textarea :-webkit-autofill {
+  -webkit-text-fill-color: white;
+  transition: background-color 9999s ease-in-out 0s;
+  box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.03) inset;
 }
 
 /* =========================================

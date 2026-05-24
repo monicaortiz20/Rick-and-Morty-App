@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { sendComment } from "@/src/services/form";
 import { CommentError } from "@/src/types/form";
-import type { FormEvent } from "react";
 
 import { toast } from "sonner";
 
@@ -13,14 +12,13 @@ export default function Form() {
   const [comment, setComment] = useState("");
 
   const [error, setError] = useState<CommentError>({});
-  const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
   function validateEmail(value: string) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   }
 
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
 
     const validations: CommentError = {
@@ -31,9 +29,16 @@ export default function Form() {
     setError(validations);
 
     const hasErrors = Object.values(validations).some(Boolean);
-    if (hasErrors) return;
-
-    const toastId = toast.loading("Sending comment...");
+    if (hasErrors) {
+      toast.error("Please, complete required fields.", {
+        style: {
+          background: "#111827",
+          border: "1px solid #fb7185",
+          color: "white",
+        },
+      });
+      return;
+    }
     try {
       setLoading(true);
       await sendComment({
@@ -41,14 +46,19 @@ export default function Form() {
         email,
         comment,
       });
-      toast.success("Comment sent seccessfully!", { id: toastId });
-      setSuccess(true);
+      toast.success("Comment sent seccessfully!", {
+        style: {
+          background: "#111827",
+          border: "1px solid #a3ff12",
+          color: "white",
+        },
+      });
       setName("");
       setEmail("");
       setComment("");
       setError({});
     } catch (error) {
-      toast.error("An error has occurredd. Please try again.", { id: toastId });
+      toast.error("An error has occurredd. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -96,10 +106,8 @@ export default function Form() {
             font-black
             text-white
             md:text-4xl
+            font-orb
           "
-            style={{
-              fontFamily: "Orbitron, sans-serif",
-            }}
           >
             Leave a comment
           </h2>
@@ -226,14 +234,12 @@ export default function Form() {
               text-black
               transition-all
               duration-300
+              font-orb
               hover:scale-[1.02]
               hover:shadow-[0_0_25px_rgba(163,255,18,0.25)]
               disabled:cursor-not-allowed
               disabled:opacity-50
             "
-              style={{
-                fontFamily: "Orbitron, sans-serif",
-              }}
             >
               {loading ? "Sending..." : "Send"}
             </button>

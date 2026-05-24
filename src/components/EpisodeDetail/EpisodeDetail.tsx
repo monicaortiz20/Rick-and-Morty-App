@@ -21,8 +21,8 @@ export default function EpisodeDetail({ episode }: Props) {
           text-base 
           font-semibold
           text-[var(--neon-green)]
-          backdrop-blur-md"
-          style={{ fontFamily: "Orbitron, sans-serif" }}
+          backdrop-blur-md
+          font-orb"
         >
           {episode.episode}
         </span>
@@ -32,7 +32,6 @@ export default function EpisodeDetail({ episode }: Props) {
       leading-tight
       text-white
       md:text-6x1"
-        style={{ fontFamily: "Orbitron, sans-serif" }}
       >
         {episode.name}
       </h1>

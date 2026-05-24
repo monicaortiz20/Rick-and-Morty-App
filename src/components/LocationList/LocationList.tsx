@@ -148,12 +148,10 @@ export default function LocationList({ locations }: Props) {
                       className="
                       text-sm
                       uppercase
+                      font-orb
                       tracking-[0.2em]
                       text-zinc-500
                     "
-                      style={{
-                        fontFamily: "Orbitron, sans-serif",
-                      }}
                     >
                       {loc.type}
                     </span>
