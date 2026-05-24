@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🧪 Rick & Morty Multiverse Explorer
+A modern and responsive web application built with Next.js 16, React 19, TypeScript and TailwindCSS, inspired by the Rick & Morty universe.
+The app allows users to explore episodes, locations and characters from the series through an immersive sci-fi interface with a modern UX/UI approach.
+The project was developed as a technical challenge using the official Rick & Morty API.
 
-## Getting Started
+🛠️ Technologies Used
 
-First, run the development server:
+Core
+Next.js 16.2.6 — React framework with App Router
+React 19.2.4 — UI library
+TypeScript — Static typing and safer development
+TailwindCSS — Utility-first CSS framework
+ESLint — Code linting and consistency
 
-```bash
+UI & UX
+Swiper 12.1.4 — Character carousel
+Heroicons React 2.2.0 — Modern SVG icons
+Sonner 2.0.7 — Toast notifications and loaders
+State Management
+React Context API (useContext)
+Global UI state management
+
+UX Features
+✅ Inline validation
+✅ Error highlighting
+✅ Success/error notifications using Sonner
+✅ Loading states
+✅ Modern glassmorphism UI
+
+🎨 Design & UX/UI
+The project uses a custom visual identity inspired by:
+Sci-fi interfaces
+Neon cyberpunk aesthetics
+Rick & Morty portals and dimensions
+UI Highlights
+
+📂 Project Structure
+
+src/
+│
+├── app/
+│ ├── episode/[id]/
+│ └── globals.css
+│
+├── components/
+│ ├── Header/
+│ ├── Tabs/
+│ ├── Searchbar/
+│ ├── EpisodeList/
+│ ├── EpisodeDetail/
+│ ├── CharacterCarousel/
+│ ├── Pagination/
+│ ├── Form/
+│ └── LocationList/
+│
+├── context/
+│ └── AppContext.tsx
+│
+├── services/
+│ ├── episodes.ts
+│ ├── characters.ts
+│ ├── locations.ts
+│ └── form.ts
+│
+├── types/
+│
+└── assets/
+
+🌐 API Used
+Official Rick & Morty API:
+rickandmortyapi.com⁠�
+
+⚡ Getting Started
+
+1. Clone the repository
+2. Navigate into the project
+   cd rick-and-morty-app
+
+📦 Install Dependencies
+Install project dependencies
+npm install
+
+▶️ Run the Development Server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be available at:
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🏗️ Build the Project
+To generate the production build:
+npm run build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🚀 Start Production Mode
+npm run start
 
-## Learn More
+🧹 Run ESLint
+npm run lint
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📱 Responsive Design
+The application has been fully optimized for:
+✅ Mobile devices
+✅ Tablets
+✅ Desktop screens
