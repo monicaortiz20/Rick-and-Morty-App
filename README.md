@@ -3,7 +3,11 @@ A modern and responsive web application built with Next.js 16, React 19, TypeScr
 The app allows users to explore episodes, locations and characters from the series through an immersive sci-fi interface with a modern UX/UI approach.
 The project was developed as a technical challenge using the official Rick & Morty API.
 
+<<<<<<< HEAD
 ## 🌍 In case you want to navigate directly to the deployed project:
+=======
+## 🌍 To navigate directly to the deployed project:
+>>>>>>> develop
 
 <a href="https://rick-and-morty-app-r6gu.vercel.app/" target="_blank">Rick & Morty App</a>
 
@@ -37,7 +41,7 @@ The project was developed as a technical challenge using the official Rick & Mor
 - Success/error notifications using Sonner
 - Loading states
 - Modern glassmorphism UI
-- 
+  
 ### 🎨 Design & UX/UI
 The project uses a custom visual identity inspired by:
 Sci-fi interfaces
