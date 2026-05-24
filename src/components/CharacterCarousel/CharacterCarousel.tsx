@@ -38,25 +38,6 @@ export default function CharacterCarousel({ characters }: Props) {
       </div>
 
       <div className="relative">
-        <div
-          className="pointer-events-none
-      absolute left-0 top-0
-      z-10 hidden
-      h-full w-24
-      bg-gradient-to-r from-[#050816]
-      to transparent
-      md:block"
-        />
-        <div
-          className="pointer-events-none
-        absolute
-        right-0 top-0
-        z-10 hidden
-      h-full w-24
-      bg-gradient-to-r from-[#050816]
-      to transparent
-      md:block"
-        />
         <Swiper
           spaceBetween={20}
           grabCursor={true}

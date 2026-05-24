@@ -228,20 +228,20 @@ export default function Form() {
               justify-center
               rounded-2xl
               bg-[var(--neon-green)]
-              px-8
-              py-4
+              px-[6px] py-[2px]
               text-sm
               font-bold
               text-black
               transition-all
               duration-300
               font-orb
+              md:w-[240px] md:px-10 md:py-5 md:text-base
+              lg:w-[280px] lg:px-12 md:py-6 md:text-lg
               hover:scale-[1.02]
               hover:shadow-[0_0_25px_rgba(163,255,18,0.25)]
               disabled:cursor-not-allowed
               disabled:opacity-50
             "
-              style={{ padding: "6px 2px" }}
             >
               {loading ? "Sending..." : "Send"}
             </button>
