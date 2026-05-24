@@ -39,16 +39,16 @@ export default function CharacterCarousel({ characters }: Props) {
 
       <div className="relative">
         <Swiper
-          spaceBetween={20}
+          spaceBetween={12}
           grabCursor={true}
-          slidesPerView={2.2}
+          slidesPerView={"auto"}
           breakpoints={{
-            640: { slidesPerView: 3.2 },
-            1024: { slidesPerView: 5.2 },
+            640: { spaceBetween: 14 },
+            1024: { spaceBetween: 16 },
           }}
         >
           {characters.map((char) => (
-            <SwiperSlide key={char.id}>
+            <SwiperSlide key={char.id} className="!w-[160px]">
               <div
                 className="flex flex-col
             !justify-center items-center
