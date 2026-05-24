@@ -21,7 +21,7 @@ export default function CharacterCarousel({ characters }: Props) {
         className="flex items-center
       justify-between"
       >
-        <h2 className="text-3x1 font-orb font-black text-white md:text-4x1">
+        <h2 className="text-3xl font-orb font-black text-white md:text-4xl">
           Characters
         </h2>
         <div
@@ -51,14 +51,14 @@ export default function CharacterCarousel({ characters }: Props) {
             <SwiperSlide key={char.id} className="!w-[160px]">
               <div
                 className="flex flex-col
-            !justify-center items-center
-            cursor-grab
-            gap-4
-            active:cursor-grabbing"
+                !justify-center items-center
+                cursor-grab
+                gap-4
+                active:cursor-grabbing"
               >
                 <div
                   className="relative overflow-hidden
-              rounded-full"
+                  rounded-full"
                 >
                   <Image
                     src={char.image}
@@ -66,15 +66,15 @@ export default function CharacterCarousel({ characters }: Props) {
                     width={140}
                     height={140}
                     className="h-[140px] w-[140px] rounded-full object-cover transition-transform
-                duration-500 group-hover:scale-105"
+                    duration-500 group-hover:scale-105"
                     loading="eager"
                   />
                 </div>
 
                 <span
                   className="text-center text-sm
-              font-medium leading-relaxed
-              text-zinc-300"
+                  font-medium leading-relaxed
+                  text-zinc-300"
                 >
                   {char.name}
                 </span>

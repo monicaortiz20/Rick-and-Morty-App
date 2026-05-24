@@ -14,6 +14,7 @@ export default function LocationList({ locations }: Props) {
       flex
       flex-col
       gap-8
+      padding-main
     "
     >
       {locations.length === 0 ? (

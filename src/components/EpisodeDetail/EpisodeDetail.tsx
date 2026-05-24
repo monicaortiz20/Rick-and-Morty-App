@@ -44,29 +44,36 @@ export default function EpisodeDetail({ episode }: Props) {
             {episode.episode}
           </span>
         </div>
-        <div className="flex items-center justify-between">
-          <div className="max-w-4xl">
+        <div
+          className="flex flex-row justify-between
+        md:flex-col
+        md:justify-start
+        md:items-start
+        md:gap-4
+        
+        lg-gap-5"
+        >
+          <div className="w-1/2 md:w-auto">
             <h1
-              className="text-4xl font-black
-          leading-[1.05]
-          text-white
-          md:text-6xl
-          font-orb"
+              className="text-base font-orb
+              md:text-4xl
+              lg:text-4xl"
             >
               {episode.name}
             </h1>
           </div>
           <div
-            className="flex gap-4 items-center
-        px-5 py-4 w-fit
-        backdrop-blur-sm"
+            className="flex gap-2 items-center
+            px-5 py-4 w-fit
+            backdrop-blur-sm
+            md:flex md:items-center"
           >
             <CalendarDaysIcon className="h-6 w-6 text-[var(--neon-green)]" />
             <div className="flex flex-col">
               <span
                 className="text-xs uppercase 
-    tracking-[0.18em]
-    text-zinc-500"
+                tracking-[0.18em]
+                text-zinc-500"
               >
                 Air Date
               </span>

@@ -140,9 +140,17 @@ p {
 .page-container {
   min-height: 100vh;
   width: 100%;
-  padding: 1rem;
+}
+.padding-main {
+  padding: 0 1rem;
+}
+.padding-mainBotton {
+  padding: 0 1rem 1rem 0;
 }
 
+.padding-inverse {
+  padding: 1rem;
+}
 .main-layout {
   display: flex;
   flex-direction: column;
@@ -343,14 +351,25 @@ textarea :-webkit-autofill {
 /* =========================================
    SCROLLBAR
 ========================================= */
-
+/* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
   width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--neon-green);
   border-radius: 999px;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--neon-green) transparent;
 }
 
 /* =========================================

@@ -99,7 +99,11 @@ export default function Home() {
   return (
     <main
       className="
-    page-container relative mx-auto flex min-h-screen w-full flex-col gap-6 md:gap-8 lg:gap-10"
+    page-container relative mx-auto flex 
+    min-h-screen w-full flex-col gap-6 
+    px-4 py-4
+    md:gap-8 md:px-6
+     lg:gap-10 lg:px-8"
     >
       <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[var(--neon-green-soft)] blur-[140px]" />
       <section className="relative z-10 flex flex-col gap-6 md:gap-8">

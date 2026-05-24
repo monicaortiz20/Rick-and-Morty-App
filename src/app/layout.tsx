@@ -13,13 +13,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en suppressHydrationWarning">
+    <html lang="en suppressHydrationWarning" data-scroll-behavior="smooth">
       <body
         className="bg-[var(--background)] text-[var(--test-primary)]
-      antialiased
-      min-h-screen
-      overflow-x-hidden
-      suppressHydrationWarning"
+        antialiased
+        min-h-screen
+        overflow-x-hidden
+        suppressHydrationWarning"
       >
         <Toaster
           position="top-right"

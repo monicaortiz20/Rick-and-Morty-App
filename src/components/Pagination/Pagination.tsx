@@ -8,12 +8,13 @@ export default function Pagination({
 }: PaginationProps) {
   return (
     <div
-      className="flex flex-col
+      className="padding-mainBotton  
+      flex flex-row
     items-center
     justify-center
     gap-5
     py-6
-    md:flex-row"
+    "
     >
       <button
         onClick={onPrev}
@@ -21,10 +22,10 @@ export default function Pagination({
         className="flex h-[56px] w-[56px]
         items-center
         justify-center
-        rounded-2x1 border
+        rounded-2xl border
         border-white/5
         bg-white/[0.03]
-        text-2x1
+        text-2xl
         text-white
         transition-all
         duration-300
@@ -55,10 +56,10 @@ export default function Pagination({
         className="flex h-[56px] w-[56px]
         items-center
         justify-center
-        rounded-2x1 border
+        rounded-2xl border
         border-white/5
         bg-white/[0.03]
-        text-2x1
+        text-2xl
         text-white
         transition-all
         duration-300

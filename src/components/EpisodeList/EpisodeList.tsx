@@ -14,6 +14,7 @@ export default function EpisodeList({ episodes }: Props) {
       flex
       flex-col
       gap-8
+      padding-main
     "
     >
       {episodes.length === 0 ? (

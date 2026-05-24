@@ -26,10 +26,11 @@ export default async function EpisodePage({ params }: Props) {
 
   return (
     <main
-      className="page-container relative mx-auto
-    flex min-h-screen
-    w-full flex-col gap-10
-    overflow-hidden"
+      className="page-container padding-inverse
+      relative mx-auto
+      flex min-h-screen
+      w-full flex-col gap-10
+      overflow-hidden"
     >
       <div
         className="pointer-events-none
@@ -52,14 +53,14 @@ export default async function EpisodePage({ params }: Props) {
 
         <div
           className="absolute inset-0
-        bg-gradient-to-l from-transparent
-        via-transparent to-[#050816]"
+          bg-gradient-to-l from-transparent
+          via-transparent to-[#050816]"
         />
 
         <div
           className="absolute bottom-0 left-0
-      h-[220px] w-full bg-gradient-to-t
-      from-[#050816] to-transparent"
+          h-[220px] w-full bg-gradient-to-t
+          from-[#050816] to-transparent"
         />
       </div>
 
@@ -84,8 +85,8 @@ export default async function EpisodePage({ params }: Props) {
       </Link>
       <div
         className="relative z-10
-      flex flex-col
-      gap-10"
+        flex flex-col
+        gap-10"
       >
         <EpisodeDetail episode={episode} />
         <CharacterCarousel characters={characters} />
