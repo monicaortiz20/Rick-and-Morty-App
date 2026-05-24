@@ -2,19 +2,10 @@ import Searchbar from "@/src/components/Searchbar";
 import Tabs from "@/src/components/Tabs";
 import Image from "next/image";
 
-type Props = {
-  search: string;
-  setSearch: (value: string) => void;
-  activeTab: "episodes" | "locations";
-  setActiveTab: (value: "episodes" | "locations") => void;
-};
+import { useAppContext } from "@/src/context/AppContext";
 
-export default function Header({
-  search,
-  setSearch,
-  activeTab,
-  setActiveTab,
-}: Props) {
+export default function Header() {
+  const { search, setSearch, activeTab, setActiveTab } = useAppContext();
   return (
     <header className="relative z-10 -mx-6 flex flex-col gap-8 py-2 md:-mx-10">
       <div className="pointer-events-none absolute left-1/2 top-0 h-[220px] w-[220px] -translate-x-1/2 rounded-full bg-[var(--neon-green-soft)] opacity-40 blur-[120px]" />

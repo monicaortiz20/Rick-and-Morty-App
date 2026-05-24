@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AppProvider } from "@/src/context/AppContext";
 import { Toaster } from "sonner";
 import "./globals.css";
 
@@ -14,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en suppressHydrationWarning" data-scroll-behavior="smooth">
-      <body
+      {/* <body
         className="bg-[var(--background)] text-[var(--test-primary)]
         antialiased
         min-h-screen
@@ -33,6 +34,13 @@ export default function RootLayout({
           }}
         />
         {children}
+      </body> */}
+
+      <body className="min-h-full flex flex-col">
+        <AppProvider>
+          <Toaster position="top-right" richColors />
+          {children}
+        </AppProvider>
       </body>
     </html>
   );

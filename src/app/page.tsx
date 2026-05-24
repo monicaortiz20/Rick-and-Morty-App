@@ -1,5 +1,6 @@
 "use client";
-import { useState, useEffect, useMemo, act } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { useAppContext } from "@/src/context/AppContext";
 import Header from "@/src/components/Header";
 import EpisodeList from "@/src/components/EpisodeList";
 import LocationList from "@/src/components/LocationList";
@@ -12,11 +13,8 @@ import { Location } from "@/src/types/locations";
 import { toast } from "sonner";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<"episodes" | "locations">(
-    "episodes",
-  );
-  const [search, setSearch] = useState("");
-  const [currPage, setCurrPage] = useState(1);
+  const { search, setSearch, activeTab, setActiveTab, currPage, setCurrPage } =
+    useAppContext();
   const [totalPages, setTotalPages] = useState(1);
   const [episodes, setEpisodes] = useState<Episode[]>([]);
   const [allEpisodes, setAllEpisodes] = useState<Episode[]>([]);
@@ -107,16 +105,7 @@ export default function Home() {
     >
       <div className="pointer-events-none absolute left-1/2 top-0 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[var(--neon-green-soft)] blur-[140px]" />
       <section className="relative z-10 flex flex-col gap-6 md:gap-8">
-        <Header
-          search={search}
-          setSearch={setSearch}
-          activeTab={activeTab}
-          setActiveTab={(value) => {
-            setActiveTab(value);
-            setCurrPage(1);
-            setSearch("");
-          }}
-        />
+        <Header />
 
         {activeTab === "episodes" && (
           <EpisodeList episodes={filteredEpisodes} />
@@ -125,14 +114,7 @@ export default function Home() {
           <LocationList locations={filteredLocations} />
         )}
 
-        {!search && (
-          <Pagination
-            currPage={currPage}
-            totalPages={totalPages}
-            onPrev={() => setCurrPage((prev) => prev - 1)}
-            onNext={() => setCurrPage((prev) => prev + 1)}
-          />
-        )}
+        {!search && <Pagination totalPages={totalPages} />}
       </section>
     </main>
   );

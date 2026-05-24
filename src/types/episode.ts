@@ -21,9 +21,6 @@ export type Search = {
   setSearch: (value: string) => void;
 };
 
-export type PaginationProps = {
-  currPage: number;
+export type Props = {
   totalPages: number;
-  onPrev: () => void;
-  onNext: () => void;
 };

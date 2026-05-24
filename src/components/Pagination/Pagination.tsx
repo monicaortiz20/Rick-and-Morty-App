@@ -1,11 +1,8 @@
-import { PaginationProps } from "@/src/types/episode";
+import { Props } from "@/src/types/episode";
+import { useAppContext } from "@/src/context/AppContext";
 
-export default function Pagination({
-  currPage,
-  totalPages,
-  onPrev,
-  onNext,
-}: PaginationProps) {
+export default function Pagination({ totalPages }: Props) {
+  const { currPage, setCurrPage } = useAppContext();
   return (
     <div
       className="padding-mainBotton  
@@ -17,7 +14,7 @@ export default function Pagination({
     "
     >
       <button
-        onClick={onPrev}
+        onClick={() => setCurrPage((pag) => pag - 1)}
         disabled={currPage === 1}
         className="flex h-[56px] w-[56px]
         items-center
@@ -51,7 +48,7 @@ export default function Pagination({
         {totalPages}
       </span>
       <button
-        onClick={onNext}
+        onClick={() => setCurrPage((pag) => pag + 1)}
         disabled={currPage === totalPages}
         className="flex h-[56px] w-[56px]
         items-center

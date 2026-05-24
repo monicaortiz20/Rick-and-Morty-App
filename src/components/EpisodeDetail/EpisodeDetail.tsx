@@ -23,8 +23,8 @@ export default function EpisodeDetail({ episode }: Props) {
       />
       <div
         className="relative z-10
-      flex flex-col gap-8"
-        style={{ padding: "12px 18px;" }}
+      flex flex-col gap-8
+      padding-inverse"
       >
         <div>
           <span
@@ -53,9 +53,9 @@ export default function EpisodeDetail({ episode }: Props) {
         
         lg-gap-5"
         >
-          <div className="w-1/2 md:w-auto">
+          <div className="w-1/2 flex items-center justify-center md:w-auto">
             <h1
-              className="text-base font-orb
+              className="text-l font-orb
               md:text-4xl
               lg:text-4xl"
             >
