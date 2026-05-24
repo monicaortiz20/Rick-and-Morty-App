@@ -213,6 +213,7 @@ export default function Form() {
               className="
               text-sm
               text-zinc-500
+              text-end
             "
             >
               {comment.length}/500
@@ -240,6 +241,7 @@ export default function Form() {
               disabled:cursor-not-allowed
               disabled:opacity-50
             "
+              style={{ padding: "6px 2px" }}
             >
               {loading ? "Sending..." : "Send"}
             </button>
