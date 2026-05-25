@@ -1,17 +1,19 @@
-import { Props } from "@/src/types/episode";
 import { useAppContext } from "@/src/context/AppContext";
+import { useEffect } from "react";
+
+type Props = {
+  totalPages: number;
+};
 
 export default function Pagination({ totalPages }: Props) {
   const { currPage, setCurrPage } = useAppContext();
 
-  function handlePage(page: number) {
-    setCurrPage(page);
-
+  useEffect(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  }
+  }, [currPage]);
   return (
     <div
       className="padding-mainBotton  
@@ -23,7 +25,7 @@ export default function Pagination({ totalPages }: Props) {
     "
     >
       <button
-        onClick={() => handlePage(currPage - 1)}
+        onClick={() => currPage > 1 && setCurrPage((pag) => pag - 1)}
         disabled={currPage === 1}
         className="flex h-[56px] w-[56px]
         items-center
@@ -57,7 +59,7 @@ export default function Pagination({ totalPages }: Props) {
         {totalPages}
       </span>
       <button
-        onClick={() => handlePage(currPage + 1)}
+        onClick={() => currPage < totalPages && setCurrPage((pag) => pag + 1)}
         disabled={currPage === totalPages}
         className="flex h-[56px] w-[56px]
         items-center
