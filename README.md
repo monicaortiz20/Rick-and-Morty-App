@@ -90,7 +90,7 @@ rickandmortyapi.com⁠�
 cd rick-and-morty-app
 ```
 
-## Install Dependencies
+3. Install Dependencies
 
 Install project dependencies:
 
@@ -98,7 +98,7 @@ Install project dependencies:
 npm install
 ```
 
-## Run the Development Server
+4. Run the Development Server
 
 ```bash
 npm run dev
@@ -110,7 +110,7 @@ The app will be available at:
 http://localhost:3000
 ```
 
-## Build the Project
+5. Build the Project
 
 To generate the production build:
 
@@ -118,7 +118,7 @@ To generate the production build:
 npm run build
 ```
 
-## Start Production Mode
+6. Start Production Mode
 
 ```bash
 npm run start
