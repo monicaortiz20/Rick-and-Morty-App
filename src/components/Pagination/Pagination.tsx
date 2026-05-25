@@ -1,5 +1,6 @@
 import { useAppContext } from "@/src/context/AppContext";
 import { useEffect } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 type Props = {
   totalPages: number;
@@ -27,17 +28,11 @@ export default function Pagination({ totalPages }: Props) {
       <button
         onClick={() => currPage > 1 && setCurrPage((pag) => pag - 1)}
         disabled={currPage === 1}
-        className="flex h-[56px] w-[56px]
-        items-center
-        justify-center
+        className="h-14 w-14 
+        flex items-center justify-center
         rounded-2xl border
-        border-white/5
-        bg-white/[0.03]
-        text-2xl
-        text-white
-        transition-all
-        duration-300
-        cursor-pointer
+        border-white/5 bg-white/[0.03]
+        transition-all duration-300 cursor-pointer
         hover:border-[rgba(163, 255, 18, 0.2)] hover:text-[var(--neon-green)]
         hover:shadow-[0_0_20px_rgba(163, 255, 18, 0.08)]
         disabled:cursor-not-allowed
@@ -46,7 +41,11 @@ export default function Pagination({ totalPages }: Props) {
         disabled:hover:text-white
         disabled:hover:shadow-none"
       >
-        &#x2190;
+        <ChevronLeftIcon
+          className="h-5 w-5
+            text-[var(--neon-green)]
+            lg:h-10 lg:w-10"
+        />
       </button>
 
       <span
@@ -61,17 +60,11 @@ export default function Pagination({ totalPages }: Props) {
       <button
         onClick={() => currPage < totalPages && setCurrPage((pag) => pag + 1)}
         disabled={currPage === totalPages}
-        className="flex h-[56px] w-[56px]
-        items-center
-        justify-center
+        className="h-14 w-14 
+        flex items-center justify-center
         rounded-2xl border
-        border-white/5
-        bg-white/[0.03]
-        text-2xl
-        text-white
-        transition-all
-        duration-300
-        cursor-pointer
+        border-white/5 bg-white/[0.03]
+        transition-all duration-300 cursor-pointer
         hover:border-[rgba(163, 255, 18, 0.2)] hover:text-[var(--neon-green)]
         hover:shadow-[0_0_20px_rgba(163, 255, 18, 0.08)]
         disabled:cursor-not-allowed
@@ -80,7 +73,11 @@ export default function Pagination({ totalPages }: Props) {
         disabled:hover:text-white
         disabled:hover:shadow-none"
       >
-        &#x2192;
+        <ChevronRightIcon
+          className="h-5 w-5
+            text-[var(--neon-green)]
+            lg:h-12 lg:w-12"
+        />
       </button>
     </div>
   );
