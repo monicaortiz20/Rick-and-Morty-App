@@ -151,6 +151,13 @@ p {
 .padding-inverse {
   padding: 1rem;
 }
+
+.pd-btn {
+  padding: 8px 10px;
+}
+.pd-12-18 {
+  padding: 12px 18px;
+}
 .main-layout {
   display: flex;
   flex-direction: column;
