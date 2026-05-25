@@ -3,6 +3,15 @@ import { useAppContext } from "@/src/context/AppContext";
 
 export default function Pagination({ totalPages }: Props) {
   const { currPage, setCurrPage } = useAppContext();
+
+  function handlePage(page: number) {
+    setCurrPage(page);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
   return (
     <div
       className="padding-mainBotton  
@@ -14,7 +23,7 @@ export default function Pagination({ totalPages }: Props) {
     "
     >
       <button
-        onClick={() => setCurrPage((pag) => pag - 1)}
+        onClick={() => handlePage(currPage - 1)}
         disabled={currPage === 1}
         className="flex h-[56px] w-[56px]
         items-center
@@ -48,7 +57,7 @@ export default function Pagination({ totalPages }: Props) {
         {totalPages}
       </span>
       <button
-        onClick={() => setCurrPage((pag) => pag + 1)}
+        onClick={() => handlePage(currPage + 1)}
         disabled={currPage === totalPages}
         className="flex h-[56px] w-[56px]
         items-center

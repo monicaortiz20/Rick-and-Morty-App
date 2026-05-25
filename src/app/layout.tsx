@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en suppressHydrationWarning" data-scroll-behavior="smooth">
       <body className="min-h-full flex flex-col">
         <AppProvider>
-          <Toaster position="top-right" richColors />
+          <Toaster position="top-right" duration={1500} richColors />
           {children}
         </AppProvider>
       </body>

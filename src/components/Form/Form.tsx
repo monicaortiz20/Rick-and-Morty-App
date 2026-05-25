@@ -73,8 +73,8 @@ export default function Form() {
       rounded-[10px]
       bg-white/[0.03]
       md:p-10
+      pd-12-18 
     "
-      style={{ padding: "12px 18px" }}
     >
       <div
         className="
@@ -146,10 +146,9 @@ export default function Form() {
             placeholder:text-zinc-500
             transition-all
             duration-300
-            focus:border-[var(--neon-green)]
             focus:outline-none
             cursor-pointer
-            ${error.name ? "border-rose-400/70" : "border-white/5"}
+            ${error.name ? "!border-rose-400/70 !focus:border-rose-400/70" : "border-white/5 focus:border-[var(--neon-green)]"}
           `}
           />
           <input
@@ -171,7 +170,7 @@ export default function Form() {
             focus:border-[var(--neon-green)]
             focus:outline-none
             cursor-pointer
-            ${error.email ? "border-rose-400/70" : "border-white/5"}
+            ${error.email ? "!border-rose-400/70 !focus:border-rose-400/70" : "border-white/5 focus:border-[var(--neon-green)]"}
           `}
           />
           <textarea
@@ -196,7 +195,7 @@ export default function Form() {
             focus:border-[var(--neon-green)]
             focus:outline-none
             cursor-pointer
-            ${error.comment ? "border-rose-400/70" : "border-white/5"}
+            ${error.comment ? "!border-rose-400/70 !focus:border-rose-400/70" : "border-white/5 focus:border-[var(--neon-green)]"}
           `}
           />
           <div
@@ -228,7 +227,7 @@ export default function Form() {
               justify-center
               rounded-2xl
               bg-[var(--neon-green)]
-              px-[6px] py-[2px]
+              pd-btn
               text-sm
               font-bold
               text-black
@@ -241,6 +240,11 @@ export default function Form() {
               hover:shadow-[0_0_25px_rgba(163,255,18,0.25)]
               disabled:cursor-not-allowed
               disabled:opacity-50
+              active:scale-[0.98]
+              active:brightness-110
+              focus:outline-none
+              focus:ring
+              focus:ring-[var(--neon-green)]/40
             "
             >
               {loading ? "Sending..." : "Send"}
